@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -25,19 +24,16 @@ class HomeController extends Controller
     {
         $product = Product::all();
         $category = Category::all();
-        $cart = Cart::count();
-        return view('pages.welcome', compact('product', 'category', 'cart'));
+        return view('pages.welcome', compact('product', 'category'));
     }
 
     public function about()
     {
-        $cart = Cart::count();
-        return view('pages.about', compact('cart'));
+        return view('pages.about');
     }
 
     public function contact()
     {
-        $cart = Cart::count();
-        return view('pages.contact', compact('cart'));
+        return view('pages.contact');
     }
 }
