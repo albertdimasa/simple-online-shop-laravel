@@ -17,13 +17,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('welcome') }}">Home</a></li>
-
-                    <li class="nav-item {{ Route::is('about') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('about') }}">About Us</a></li>
-
-                    <li class="nav-item "><a class="nav-link" href="#">Shop</a></li>
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('welcome') }}">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                    </li>
                     {{-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                         <ul class="dropdown-menu">
@@ -36,9 +38,9 @@
                         </ul>
                     </li> --}}
                     {{-- <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li> --}}
-
-                    <li class="nav-item {{ Route::is('contact') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('contact') }}">Contact Us</a></li>
+                    <li class="nav-item {{ Route::is('contact') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -46,12 +48,11 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 @if (Auth::check())
-                    <form action="{{ route('logout') }}" class="my-auto" method="post">
+                    <form action="{{ route('logout') }}"method="post">
                         @csrf
-                        <a href="#" class="btn btn-dark" type="button">
-                            <i class="fa fa-account mr-1"></i>
+                        <button class="btn btn-dark btn-sm" type="submit">
                             Logout
-                        </a>
+                        </button>
                     </form>
                 @else
                     <div class="d-flex">

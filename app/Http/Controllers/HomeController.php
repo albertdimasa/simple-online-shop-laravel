@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -17,12 +18,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (Auth::user()->role == 0) {
+            // Return to user panel
+            return $this->welcome();
+        }
+
+        return view('admin.home');
     }
 
     public function welcome()
     {
-        $product = Product::all();
+        $product = Product::limit(8)->get();
         $category = Category::all();
         return view('pages.welcome', compact('product', 'category'));
     }
