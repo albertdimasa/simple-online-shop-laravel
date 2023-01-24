@@ -20,8 +20,8 @@
                     <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('welcome') }}">Home</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">Shop</a>
+                    <li class="nav-item {{ Route::is('shop') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('shop') }}">Shop</a>
                     </li>
                     <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>

@@ -42,4 +42,12 @@ class HomeController extends Controller
     {
         return view('pages.contact');
     }
+
+    public function shop()
+    {
+        $product    = Product::all();
+        $count      = Product::count();
+        $category   = Category::all();
+        return view('pages.shop', compact('product', 'count', 'category'));
+    }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 
 Auth::routes();
 
