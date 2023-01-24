@@ -43,6 +43,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('kategori.index') }}"
+                        class="nav-link {{ Route::is('kategori.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>
+                            Kategori
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('produk.index') }}"
                         class="nav-link {{ Route::is('produk.index') ? 'active' : '' }}">
                         <i class="nav-icon fab fa-product-hunt"></i>
