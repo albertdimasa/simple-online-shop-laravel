@@ -9,8 +9,10 @@
                     aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('theme') }}/images/logo.png"
-                        class="logo" alt=""></a>
+                <a class="navbar-brand" href="{{ route('welcome') }}">
+                    <img src="{{ asset('theme') }}/images/tali-tani.png" class="logo" alt="logo"
+                        style="height: 120px; object-fit: cover;">
+                </a>
             </div>
             <!-- End Header Navigation -->
 
