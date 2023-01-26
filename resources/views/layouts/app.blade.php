@@ -10,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>Fresh Shop - Memenuhi Kebutuhan Pertanian Anda</title>
+    <title>Tali Tani - Memenuhi Kebutuhan Pertanian Anda</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="{{ asset('theme') }}/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{{ asset('theme') }}/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="{{ asset('theme') }}/images/tali-tani.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('theme') }}/css/bootstrap.min.css">
