@@ -21,17 +21,19 @@ class DatabaseSeeder extends Seeder
     {
 
         User::create([
-            'name'      => 'Admin',
-            'email'     => 'admin@mail.com',
-            'password'  => Hash::make('123456'),
-            'role'      => 1
+            'name'          => 'Admin',
+            'email'         => 'admin@mail.com',
+            'password'      => Hash::make('123456'),
+            'phone_number'  => 6285555555555,
+            'role'          => 1
         ]);
 
         User::create([
-            'name'      => 'User',
-            'email'     => 'user@mail.com',
-            'password'  => Hash::make('123456'),
-            'role'      => 0
+            'name'          => 'User',
+            'email'         => 'user@mail.com',
+            'password'      => Hash::make('123456'),
+            'phone_number'  => 6285745974148,
+            'role'          => 0
         ]);
 
         Category::create([

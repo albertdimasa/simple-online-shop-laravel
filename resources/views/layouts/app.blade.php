@@ -52,6 +52,7 @@
     <script src="{{ asset('theme') }}/js/form-validator.min.js"></script>
     <script src="{{ asset('theme') }}/js/contact-form-script.js"></script>
     <script src="{{ asset('theme') }}/js/custom.js"></script>
+    @stack('js')
 </body>
 
 </html>

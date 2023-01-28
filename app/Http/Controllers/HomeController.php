@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Pesanan;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class HomeController extends Controller
     {
         if (Auth::user()->role == 0) {
             // Return to user panel
-            return $this->welcome();
+            return view('user.home');
         }
 
         return view('admin.home');
@@ -41,6 +42,12 @@ class HomeController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function cart()
+    {
+        $data = Pesanan::where('is_cart', 1)->get();
+        return view('pages.cart');
     }
 
     public function shop()

@@ -2,7 +2,13 @@
 
 @section('content')
     <div class="shop-box-inner">
+
         <div class="container">
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    Pesanan berhasil ditambahkan! Cek keranjang!
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
                     <div class="right-product-box">
@@ -47,7 +53,8 @@
                                                         <div class="type-lb">
                                                             <p class="sale">{{ $item->category->title }}</p>
                                                         </div>
-                                                        <img src="{{ $item->image }}" class="img-fluid" alt="Image">
+                                                        <img src="{{ $item->image }}" class="img-fluid" alt="Image"
+                                                            style="height: 300px; object-fit: cover">
                                                         <div class="mask-icon">
                                                             <ul>
                                                                 <li>
@@ -63,7 +70,15 @@
                                                                     </a>
                                                                 </li>
                                                             </ul>
-                                                            <a class="cart" href="#">Pesan Sekarang</a>
+                                                            <form action="{{ route('pesanan.store') }}" method="post"
+                                                                class="m-1">
+                                                                @csrf
+                                                                <input type="hidden" name="item_id"
+                                                                    value="{{ $item->id }}">
+                                                                <button class="btn btn-success btn-sm" type="submit">
+                                                                    Pesan Sekarang
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                     <div class="why-text">
@@ -247,3 +262,8 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        $('.alert').delay(4500).fadeOut('slow');
+    </script>
+@endpush

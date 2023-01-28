@@ -28,6 +28,9 @@
                     <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
+                    <li class="nav-item {{ Route::is('cart') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('cart') }}">Cart</a>
+                    </li>
                     {{-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                         <ul class="dropdown-menu">

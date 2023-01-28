@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Pesanan extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function category()
+    public function pesanan_detail()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(PesananDetail::class);
     }
 
-    public function pesanan()
+    public function user()
     {
-        return $this->hasMany(Pesanan::class);
+        return $this->belongsTo(User::class);
     }
 }
