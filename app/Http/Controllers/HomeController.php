@@ -44,12 +44,6 @@ class HomeController extends Controller
         return view('pages.contact');
     }
 
-    public function cart()
-    {
-        $data = Pesanan::where('is_cart', 1)->get();
-        return view('pages.cart');
-    }
-
     public function shop()
     {
         $product    = Product::all();

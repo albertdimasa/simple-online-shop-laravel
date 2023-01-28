@@ -12,14 +12,14 @@ class PesananController extends Controller
 {
     public function index()
     {
-        $data = Pesanan::all();
         $detail = PesananDetail::all();
 
         if (auth()->user()->role == 1) {
+            $data = Pesanan::where('is_cart', 0)->get();
             return view('admin.pesanan.index', compact('data', 'detail'));
         }
 
-        $data = $data->where('user_id', Auth::user()->id);
+        $data = Pesanan::where('user_id', Auth::user()->id)->get();
         return view('user.pesanan.index', compact('data', 'detail'));
     }
 
@@ -76,7 +76,6 @@ class PesananController extends Controller
 
     public function show(Pesanan $pesanan)
     {
-        //
     }
 
     public function update(Request $request, Pesanan $pesanan)
@@ -87,5 +86,52 @@ class PesananController extends Controller
     public function destroy(Pesanan $pesanan)
     {
         //
+    }
+
+    public function cart()
+    {
+        $header = Pesanan::where([
+            ['is_cart', 1],
+            ['user_id', auth()->user()->id]
+        ])->first();
+
+        if ($header != null) {
+            $data = PesananDetail::selectRaw('product_id, SUM(harga) total, count(product_id) qty')
+                ->where('pesanan_id', '=', $header->id)
+                ->groupBy('product_id')
+                ->get();
+        } else {
+            $data = [];
+        }
+
+        return view('pages.cart', compact('data', 'header'));
+    }
+
+    public function cart_reset(Request $request)
+    {
+        $pesanan = Pesanan::where([['user_id', auth()->user()->id], ['is_cart', 1]])->first();
+        PesananDetail::where('pesanan_id', $pesanan->id)->delete();
+        $pesanan->delete();
+        return redirect()->back();
+    }
+
+    public function cart_proses(Pesanan $pesanan)
+    {
+        // Buat invoice dan cek apakah telah ada
+        $invoice    = date('ymdhis');
+        $exist      = Pesanan::where('invoice', $invoice)->exists();
+
+        if (!$exist) {
+            $pesanan->update([
+                'invoice' => $invoice,
+                'is_cart' => 0
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
+    public function send_wa()
+    {
     }
 }

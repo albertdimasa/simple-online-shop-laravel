@@ -22,21 +22,20 @@
             <tbody>
                 @foreach ($data as $item)
                     <tr>
-                        <td>{{ $item->invoice }}</td>
-                        <td>{{ $item->created_at }}</td>
+                        @if ($item->invoice == 0)
+                            <td class="bg-danger"></td>
+                        @else
+                            <td>{{ $item->invoice }}</td>
+                        @endif
+                        <td>{{ $item->created_at->format('d F Y') }}</td>
                         <td>@money($item->total)</td>
-                        {{-- <td>
+                        <td>
                             <button class="btn btn-sm btn-primary" data-toggle="modal"
                                 data-target="#detailModal-{{ $item->id }}">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-eye"></i>
                             </button>
-                            <button class="btn btn-sm btn-danger" data-toggle="modal"
-                                data-target="#deleteModal-{{ $item->id }}">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                            @include('admin.product.edit')
-                            @include('admin.product.delete')
-                        </td> --}}
+                            @include('user.pesanan.show')
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

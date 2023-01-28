@@ -53,12 +53,15 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 @if (Auth::check())
-                    <form action="{{ route('logout') }}"method="post">
-                        @csrf
-                        <button class="btn btn-dark btn-sm" type="submit">
-                            Logout
-                        </button>
-                    </form>
+                    <div class="d-flex">
+                        <a href="{{ route('home') }}" class="btn btn-info btn-sm mr-3">Beranda</a>
+                        <form action="{{ route('logout') }}"method="post">
+                            @csrf
+                            <button class="btn btn-dark btn-sm" type="submit">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
                 @else
                     <div class="d-flex">
                         <a href="{{ route('login') }}" class="mr-3">Login</a>
